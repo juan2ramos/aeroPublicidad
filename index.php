@@ -1,3 +1,3 @@
 <?php
-echo 'inicio';
+echo 'change';
 ?>
