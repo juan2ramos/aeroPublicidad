@@ -37,7 +37,11 @@
 </head>
 <body>
 <header>
-
+    <figure class="user">
+        <img src="https://lh5.googleusercontent.com/-R7Y0tocyCgs/AAAAAAAAAAI/AAAAAAAAhz0/OrGkZ54ZyPc/s92-c-k-no/photo.jpg" alt=""/>
+    </figure>
+    <div class="rope"></div>
+    <span class="icon-rocket2 spacecraft"></span>
     <nav>
         <ul>
             <li></li>
@@ -52,9 +56,7 @@
 <?php include $fileName; ?>
 
 <footer>
-    <ul id="nav-footer">
-        <li></li>
-    </ul>
+
 </footer>
 <!-- JavaScript -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

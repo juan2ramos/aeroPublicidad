@@ -4,6 +4,80 @@
     Author     : Juan Ramos
 
 */
+@font-face {
+    font-family: 'icomoon';
+    src: url('fonts/icomoon.eot?5p1ape');
+    src: url('fonts/icomoon.eot?#iefix5p1ape') format('embedded-opentype'), url('fonts/icomoon.woff?5p1ape') format('woff'), url('fonts/icomoon.ttf?5p1ape') format('truetype'), url('fonts/icomoon.svg?5p1ape#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+    content: "\e600";
+}
+
+.icon-rocket:before {
+    content: "\e602";
+}
+
+.icon-fire:before {
+    content: "\e603";
+}
+
+.icon-console:before {
+    content: "\e605";
+}
+
+.icon-mail:before {
+    content: "\e606";
+}
+
+.icon-googleplus:before {
+    content: "\e607";
+}
+
+.icon-googleplus2:before {
+    content: "\e608";
+}
+
+.icon-facebook:before {
+    content: "\e609";
+}
+
+.icon-instagram:before {
+    content: "\e60a";
+}
+
+.icon-twitter:before {
+    content: "\e601";
+}
+
+.icon-twitter2:before {
+    content: "\e60b";
+}
+
+.icon-fire2:before {
+    content: "\e60c";
+}
+
+.icon-rocket2:before {
+    content: "\e604";
+}
+
 *:focus {
     outline: 0;
 }
@@ -12,9 +86,13 @@ a {
     text-decoration: none;
 }
 
+html {
+    max-height: 100%;
+}
+
 body {
 
-    background: #dbd5cc;
+    background: #080E24;
     font-family: 'coolveticaregular', sans-serif;
     font-size: 16px;
 }
@@ -33,8 +111,7 @@ h1, h2, h3, ul {
 }
 
 html, body {
-    width: 100%;
-    height: 100%;
+
     margin: 0;
 }
 
@@ -59,25 +136,450 @@ h2 {
 header
 ===================================================================*/
 header {
+    background: #fff;
+    height: 100%;
+    left: -150px;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s;
+    width: 150px;
+    z-index: 1000;
 
-    margin: 10px 0;
-    position: relative;
 }
 
+.user {
+    margin: 10px auto;
+    width: 86px;
 
+}
+
+.user img {
+
+    border: 3px solid rgb(210, 117, 117);
+    border-radius: 50%;
+    max-width: 80px;
+}
+
+.show-header {
+    left: 0;
+}
+
+.spacecraft {
+    animation: spacecraft 5s infinite alternate;
+    background: linear-gradient(136deg, #0751d3 50%, #0759ee 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5em;
+    color: red;
+    left: 100%;
+    position: absolute;
+    text-fill-color: transparent;
+    top: 10px;
+    transform: rotate(45deg);
+
+}
+
+.rope {
+    background: #0751d3;
+    display: block;
+    height: 2px;
+    left: 100%;
+    position: absolute;
+    top: 30px;
+    width: 12px;
+
+}
 
 /*=================================================================
 Nav
 ===================================================================*/
 
+/*=================================================================
+Solar System
+===================================================================*/
+.solar-system {
+    height: 650px;
+    list-style: none;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.09s ease-in;
+    width: 1060px;
+}
+
+.solar-system li {
+    border: 1px solid #112B3D;
+    border-color: #112B3D;
+    border-radius: 50%;
+    position: absolute;
+    text-indent: -9999px;
+    transition: 1s;
+}
+
+.solar-system li:hover {
+    box-shadow: inset 0 0 1px white;
+
+    transition: 0;
+
+}
+
+.solar-system li span {
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+}
+
+/*=================================================================
+Sun
+===================================================================*/
+
+.solar-system li.sun {
+    animation: flow 10s infinite alternate;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #c90;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.22, rgb(204, 153, 0)), color-stop(1, rgb(255, 219, 112)));
+    background-image: -moz-linear-gradient(center bottom, rgb(204, 153, 0) 22%, rgb(255, 219, 112) 100%);
+    height: 50px;
+    left: 505px;
+    top: 295px;
+    transition: all 0.2s ease-in;
+    width: 50px;
+    z-index: 100;
+}
+
+/*=================================================================
+Animation
+===================================================================*/
+@keyframes rotatePlanet {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 200% 0%;
+    }
+}
+
+.info {
+    position: absolute;
+
+    top: 0;
+    z-index: 999;
+}
+
+.planet {
+    display: none;
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+    background: #fff url(none) repeat-x 0% 0%;
+    background-size: 800px 400px;
+    border-radius: 50%;
+    animation: rotatePlanet 15s linear infinite;
+    overflow: hidden;
+}
+
+.mars-display {
+    background-image: url('http://www.cssnewbie.com/wp-content/uploads/2013/01/planet-mars.jpg');
+
+}
+
+.earth-display {
+    background-image: url('http://ctrla.lt/gfx/solar/earth2.jpg');
+
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.solar-system li {
+    animation-name: orbit;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.paused {
+    animation-play-state: paused;
+}
+
+/*=============Mercury===========*/
+
+.solar-system li.mercury {
+    animation-duration: 30s;
+    width: 150px;
+    height: 150px;
+    top: 245px;
+    left: 455px;
+    z-index: 100;
+
+}
+
+.solar-system li.mercury span {
+    background: #2b3a7c;
+    top: 16px;
+    left: 16px;
+}
+
+/*=============Venus===========*/
+
+.solar-system li.venus {
+    animation-duration: 40s;
+    width: 200px;
+    height: 200px;
+    top: 220px;
+    left: 430px;
+    z-index: 99;
+
+}
+
+.solar-system li.venus span {
+    background: #7c2128;
+    top: 23px;
+    left: 23px;
+    height: 14px;
+    width: 14px;
+}
+
+/*=============Earth===========*/
+
+.solar-system li.earth {
+    animation-duration: 50s;
+    width: 250px;
+    height: 250px;
+    top: 195px;
+    left: 405px;
+    z-index: 98
+
+}
+
+.solar-system li.earth span {
+    background: #009bff;
+    top: 30px;
+    left: 30px;
+    height: 18px;
+    width: 18px;
+}
+
+/*=============Mars===========*/
+
+.solar-system li.mars {
+    animation-duration: 60s;
+    width: 300px;
+    height: 300px;
+    top: 170px;
+    left: 380px;
+    z-index: 97
+
+}
+
+.solar-system li.mars span {
+    background: #d0081b;
+    top: 37px;
+    left: 37px;
+    height: 14px;
+    width: 14px;
+}
+
+/*=============Asteroid-belt===========*/
+
+.solar-system li.asteroid-belt {
+    animation-duration: 12s;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    top: 145px;
+    left: 355px;
+    z-index: 96;
+    border: 2px dotted #55667c;
+
+}
+
+/*=============Jupiter===========*/
+
+.solar-system li.jupiter {
+    animation-duration: 70s;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    top: 120px;
+    left: 330px;
+    z-index: 95
+
+}
+
+.solar-system li.jupiter span {
+    animation-duration: 1s;
+    background: #af9877;
+    top: 43px;
+    left: 43px;
+    height: 30px;
+    width: 30px;
+}
+
+/*=============Saturn===========*/
+
+.solar-system li.saturn {
+    animation-duration: 80s;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    top: 95px;
+    left: 305px;
+    z-index: 94
+
+}
+
+.solar-system li.saturn span {
+    background: #ffff00;
+    top: 55px;
+    left: 55px;
+    height: 20px;
+    width: 20px;
+}
+
+/*=============Uranus===========*/
+
+.solar-system li.uranus {
+    animation-duration: 90s;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    top: 70px;
+    left: 280px;
+    z-index: 93
+
+}
+
+.solar-system li.uranus span {
+    background: #2b3a7c;
+    top: 64px;
+    left: 64px;
+    height: 19px;
+    width: 19px;
+}
+
+/*=============Neptune===========*/
+
+.solar-system li.neptune {
+    animation-duration: 100s;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    top: 45px;
+    left: 255px;
+    z-index: 92
+
+}
+
+.solar-system li.neptune span {
+    background: #2b3a7c;
+    top: 71px;
+    left: 71px;
+    height: 18px;
+    width: 18px;
+}
+
+/*=============Pluton===========*/
+
+.solar-system li.pluto {
+    animation-duration: 120s;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    top: 25px;
+    left: 230px;
+    z-index: 91
+
+}
+
+.solar-system li.pluto span {
+    background: #7c6a5c;
+    top: 82px;
+    left: 82px;
+}
+
+/*=============Asteroid kuiper===========*/
+
+.solar-system li.asteroid-kuiper {
+    animation-duration: 120s;
+    width: 650px;
+    height: 650px;
+    top: 0px;
+    left: 205px;
+    z-index: 90;
+    border: 2px dotted #55667c;
+
+}
+
+@keyframes flow {
+    0% {
+        box-shadow: 0 0 50px #fffc01, 0 0 150px #ffad01;
+
+    }
+    25% {
+        box-shadow: 0 0 50px #fffc01, 0 0 200px #ffad01;
+
+    }
+    50% {
+        box-shadow: 0 0 100px #fffc01, 0 0 300px #ffad01;
+
+    }
+    75% {
+        box-shadow: 0 0 50px #fffc01, 0 0 200px #ffad01;
+
+    }
+    100% {
+        box-shadow: 0 0 0px #fffc01, 0 0 150px #ffad01;
+    }
+}
+
+@keyframes spacecraft {
+    0% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(40deg);
+
+    }
+    50% {
+        transform: rotate(50deg);
+
+    }
+    75% {
+        transform: rotate(40deg);
+
+    }
+    100% {
+        transform: rotate(45deg);
+
+    }
+}
 
 /*=================================================================
 Footer
 ===================================================================*/
 footer {
-    background: #48463f;
-    clear: both;
-    margin: 200px 0 0;
-    width: 1060px
+    background: #fff;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+    position: fixed;
+    z-index: 1000;
 }
 
+.start {
+    position: absolute;
+    text-shadow: 0px 0px 5px #FFFFFF;
+
+}
